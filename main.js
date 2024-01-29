@@ -26,10 +26,10 @@ const db = getFirestore(app);
 export async function ambildaftarsiswa  () {
   const siswaRef = collection(db, "siswa");
   const q =query(siswaRef, orderBy("nama"));
-  const querysnapshot = await getDocs(q);
+  const querySnapshot = await getDocs(q);
   
   let retval = [];
-  querysnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc) => {
     retval.push({ id: doc.id, nama: doc.data().nama });
   });
   
