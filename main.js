@@ -21,4 +21,18 @@ const firebaseConfig = {
   measurementId: "G-W3SBB85TF1"
 };
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
+export async function ambildaftarsiswa  () {
+  const siswaRef = collection(db, "siswa");
+  const q =query(siswaRef, orderBy("nama"));
+  const querysnapshot = await getDocs(q);
+  
+  let retval = [];
+  querysnapshot.forEach((doc) => {
+    retval.push({ id: doc.id, nama: doc.data().nama });
+  });
+  
+  return retval;
+}
+ 
