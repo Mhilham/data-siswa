@@ -33,7 +33,7 @@ export async function ambildaftarsiswa() {
     retval.push({ id: doc.id, nama: doc.data().nama });
   });
 
-  return retval;
+   return retval;
 }
 export async function tambahsiswa(val) {
   try {
